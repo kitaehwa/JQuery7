@@ -10,7 +10,7 @@
 <!-- (CDN : Content Delivery Network) -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-<!-- 주의 : 여러개 추가 가능  -->
+<!-- 주의 : 여러개 추가 가능, 하지만 버전 충돌을 주의  -->
 
 <script type="text/javascript">
 	$(document).ready(function(){
