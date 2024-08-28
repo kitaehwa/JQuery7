@@ -52,6 +52,26 @@ $(function(){
 	
 	$('img').attr("src","mainslide02.jpg");
 	
+	// img 태그에 'border' 속성의 값을 5 설정
+	$('img').attr('border', 5);
+	
+	// 이미지 마다 다르게 설정
+	$('img').attr('border', function(idx, attr){
+		//alert(idx+"/"+attr); 인덱스, 설정된 속성값
+		return (idx+1)*5;
+	});	
+	
+	// width height, border 설정을 한번에 처리
+	// -> 가로길이를 모두 다르게 설정
+	$('img').attr({
+		"width":function(idx){
+			return (idx+1)*100;
+		},
+		"height":100,
+		"border":5
+		
+	})
+	
 	
 });
 </script>
