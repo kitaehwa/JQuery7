@@ -101,15 +101,15 @@
 		});
 		
 		// jtbc RSS 서비스 정보를 비동기 방식으로 처리
-		$.ajax({
-			url:"https://fs.jtbc.co.kr/RSS/sports.xml",
-			success:function(data){
-				alert("JTBC 뉴스 정보에 접근 성공");
-				console.log(data);
-				// id = news에 기사제목 출력
-				$(data).find("item").each(function(){
-					var title = $(this).find("title").text();
-					var link = $(this).find("link").text();
+// 		$.ajax({
+// 			url:"https://fs.jtbc.co.kr/RSS/sports.xml",
+// 			success:function(data){
+// 				alert("JTBC 뉴스 정보에 접근 성공");
+// 				console.log(data);
+// 				// id = news에 기사제목 출력
+// 				$(data).find("item").each(function(){
+// 					var title = $(this).find("title").text();
+// 					var link = $(this).find("link").text();
 					//$("#news").append(title+"<hr>");
 					
 					//var tag = "<a href='"+link+"'>"+title+"</a>";					
@@ -120,11 +120,46 @@
 // 						tag += "</a>";
 					
 					// ``(백틱)
-					var tag = `
-						<a href="link"> ${title} </a>
-					`;
+// 					var tag = `
+// 						<a href="link"> ${title} </a>
+// 					`;
 					
-					$("#news").append(tag+"<hr>");
+// 					$("#news").append(tag+"<hr>");
+					
+					
+					// ajax()의 대표적인 리턴타입 : html, xml, JSON
+					// JSON 데이터 타입
+					// JSON(JavaScript Object Notation) : 자바스크립트 객체 표현식
+					// => 개방형 표준 데이터 포멧의 일부(xml, csv)
+					// 장점
+					//   1) 단순 텍스트형태, 속성-값 쌍으로 구성. ("속성:값")
+					//   2) 데이터 크기가 작음 => 전송속도 빠름.  
+					//	 3) 특정 언어, 플랫폼에 독립적이다.
+					//   4) 대부분의 언어, 플랫폼, 브라우저에는 JSON 파서가 포함되어 있음.
+					// 단점
+					//   1) 문법에 예민함. (" ' . , 문법체크 필요)
+					//   2) 자바스크립트 기반이기 때문에 js코드가 포함될수있음. (보안취약점)
+					
+					// JSON 문법 
+					// - 데이터 표현
+					//	"속성(key)" : 값(value)
+					// - 객체 표현 => {}
+					//	{"속성(key)" : 값(value), "속성(key)" : 값(value), ...}
+					// - 배열 표현 => []
+					//	["속성(key)" : 값(value), {"속성(key)" : 값(value)}, [], ...]
+					
+					// * 속성은 ""으로 묶어서 선언, 값은 타입에 따라서 변경
+					// * JSON타입의 자료형
+					// - 정수 : 단순한 숫자표현가능(2,8,16진수는 표현X)
+					// - 실수 : 소수점 이하 자리수를 포함하는 숫자 표현
+					//          (고정소수점 (1.001), 부동소수점 (2.5e))
+					// - 논리형 boolean : true, false
+					// - Null
+					// - 문자열 : String타입 데이터 저장 ""를 사용해서 저장한 타입
+					// - 배열
+					
+					// * 날짜 정보(Date)타입 지원X => 문자형태 ("2024-09-04"), 숫자형태(54353324)
+					
 				});
 			}
 			
